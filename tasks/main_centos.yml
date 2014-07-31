@@ -1,0 +1,7 @@
+---
+- name: install the libselinux-python package
+  yum: name=libselinux-python state=installed
+
+- name: install haproxy
+  yum: name=haproxy state=present
+  tags: haproxy
