@@ -1,5 +1,5 @@
 ---
-opt_global:
+haproxy_global:
   chroot: /var/lib/haproxy
   log:
     - bind: 127.0.0.1
@@ -12,7 +12,7 @@ opt_global:
   group: haproxy
   daemon: true
 
-opt_defaults:
+haproxy_defaults:
 #  log: global
   mode: http
   retries: 3
@@ -52,6 +52,10 @@ opt_defaults:
      file: /etc/haproxy/errors/503.http
    - name: 504
      file: /etc/haproxy/errors/504.http
+
+haproxy_admin:
+  bind: '*:8080'
+  stats: enable
 
 #
 # Those default options are based on the following config file (/etc/haproxy/haproxy.cfg)
