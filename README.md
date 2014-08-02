@@ -10,7 +10,7 @@ Install and configure haproxy under :
 This repository is based on a MIT License
 
 Documentation:
-______________
+-------------------------
 
 You can see [the documentation](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/main.yml) to see all available options.
 
@@ -39,6 +39,6 @@ Example Playbook
 ```
 
 More Informations
---------------
+-------------------------
 This project is still in development and lot options are missing or not fully tested.
 You can follow the developpment status on : https://trello.com/b/TPJFH9rF/ansible-haproxy
