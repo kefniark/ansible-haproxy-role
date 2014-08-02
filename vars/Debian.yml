@@ -1,2 +1,3 @@
 ---
+# vars file for ansible-haproxy-role
 error_file: true
