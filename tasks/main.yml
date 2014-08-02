@@ -12,10 +12,6 @@
     copy: src='default.cfg' dest='/etc/default/haproxy'
     tags: service
 
--   name: reset configuration
-    command: rm -f /etc/haproxy/haproxy.cfg
-    tags: configure
-
 -   name: configure haproxy
     template: src=main.cfg dest=/etc/haproxy/haproxy.cfg
     notify: reload haproxy

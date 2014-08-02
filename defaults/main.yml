@@ -7,6 +7,8 @@ haproxy_global:
     - bind: 127.0.0.1
       facility: local1
       level: notice
+  debug: 1
+  description: "HAProxy Daemon"
   maxconn: 4096
   user: haproxy
   group: haproxy
@@ -23,39 +25,36 @@ haproxy_defaults:
    - forwardfor except 127.0.0.0/8
    - redispatch
   timeout:
-   - name: http-request
-     value: 10s
-   - name: queue
-     value: 1m
-   - name: connect
-     value: 10s
-   - name: client
-     value: 1m
-   - name: server
-     value: 1m
-   - name: http-keep-alive
-     value: 10s
-   - name: check
-     value: 10s
-  errorfile:
-   - name: 400
-     file: /etc/haproxy/errors/400.http
-   - name: 403
-     file: /etc/haproxy/errors/403.http
-   - name: 408
-     file: /etc/haproxy/errors/408.http
-   - name: 500
-     file: /etc/haproxy/errors/500.http
-   - name: 502
-     file: /etc/haproxy/errors/502.http
-   - name: 503
-     file: /etc/haproxy/errors/503.http
-   - name: 504
-     file: /etc/haproxy/errors/504.http
+   - http-request 5s
+   - queue 1m
+   - connect 5s
+   - client 1m
+   - server 1m
+   - http-keep-alive 10s
+   - check 5s
+
+haproxy_frontends:
+ - name: loadbalancer
+   bind: '*:8080'
+   mode: http
+   default_backend: webservers
+
+haproxy_backends:
+ - name: webservers
+   balance: roundrobin
+   mode: http
+   servers:
+    - name: backend1
+      ip: 127.0.0.1
+      port: 80
 
 haproxy_admin:
-  bind: '*:8080'
-  stats: enable
+  bind: '*:1234'
+  stats:
+   - status: enable
+   - hideversion: enable
+   - refresh: 10
+   - auth: 'admin:admin'
 
 #
 # Those default options are based on the following config file (/etc/haproxy/haproxy.cfg)
