@@ -1,10 +1,10 @@
 ---
--   name: add backports repository
-    apt_repository: repo='deb http://ftp.debian.org/debian wheezy-backports main' state=present update_cache=yes
-    when: ansible_distribution == "Debian"
-    tags: install
+- name: add backports repository
+  apt_repository: repo='deb http://ftp.debian.org/debian wheezy-backports main' state=present update_cache=yes
+  when: ansible_distribution == "Debian"
+  tags: install
 
--   name: install haproxy
-    apt: pkg=haproxy state=installed
-    tags: install
+- name: install haproxy
+  apt: pkg=haproxy state=installed
+  tags: install
 

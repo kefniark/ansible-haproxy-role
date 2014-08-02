@@ -53,6 +53,7 @@ haproxy_admin:
   stats:
    - status: enable
    - hideversion: enable
+   - uri: /
    - refresh: 10
    - auth: 'admin:admin'
 
