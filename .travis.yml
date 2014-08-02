@@ -10,5 +10,6 @@ install:
   - pip install ansible
 
 script:
-  - ansible-playbook -i test/inventory --syntax-check test/test.yml
-  - ansible-playbook -i test/inventory --connection=local --sudo -vvvv test/test.yml
+  - echo localhost > inventory
+  - ansible-playbook -i inventory --syntax-check test/test.yml
+  - ansible-playbook -i inventory --connection=local --sudo -vvvv test/test.yml
