@@ -1,8 +1,11 @@
-- include: main_centos.yml
-  when: ansible_distribution == "CentOS"
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
 
-- include: main_debian.yml
-  when: ansible_os_family == "Debian"
+- include: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: Debian.yml
+  when: ansible_os_family == 'Debian'
 
 - name: start haproxy
   service: name=haproxy state=running
