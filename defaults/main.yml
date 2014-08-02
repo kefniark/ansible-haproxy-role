@@ -1,14 +1,11 @@
 ---
 # defaults file for ansible-haproxy-role
 haproxy_global:
-  chroot: /var/lib/haproxy
+  #chroot: /var/lib/haproxy
   log:
     - bind: 127.0.0.1
       facility: local0
-    - bind: 127.0.0.1
-      facility: local1
-      level: notice
-  debug: 1
+      level: info
   description: "HAProxy Daemon"
   maxconn: 4096
   user: haproxy
@@ -16,7 +13,10 @@ haproxy_global:
   daemon: true
 
 haproxy_defaults:
-#  log: global
+  log:
+    - bind: 127.0.0.1
+      facility: local1
+      level: info
   mode: http
   retries: 3
   options:

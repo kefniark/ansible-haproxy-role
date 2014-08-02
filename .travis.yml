@@ -1,18 +1,18 @@
- ---
+---
 language: python
 python: "2.7"
 
-env:
-  - SITE=test.yml
-
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y curl
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq python-apt python-pycurl curl
+ - sudo apt-get install -qq apache2
 
 install:
-  - pip install ansible==1.5.0
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - pip install ansible
 
 script:
-  - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
-  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
+  - echo localhost > inventory
+  - ansible-playbook -i inventory --syntax-check .travis.playbook.yml
+  - ansible-playbook -i inventory --connection=local --sudo -vvvv .travis.playbook.yml
+  - curl http://localhost:1234/
+  - curl http://localhost:8080/
