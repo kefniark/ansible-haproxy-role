@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-haproxy-role
 haproxy_global:
-  chroot: /var/lib/haproxy
+  #chroot: /var/lib/haproxy
   log:
     - bind: 127.0.0.1
       facility: local0
