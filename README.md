@@ -11,12 +11,11 @@ This repository is based on a MIT License
 
 Documentation:
 -------------------------
+To see all available options, you can look to the [Documentation](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/main.yml).
 
-You can see [the documentation](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/main.yml) to see all available options.
-
-There is also two configuration file :
- - A reverse proxy for a preinstalled webserver : [Exemple 1](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-simple-server.yml)
- - A loadbalancer in front of : [Exemple 2](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-loadbalancer.yml)
+This project also contains two examples :
+ - A reverse proxy for a pre installed web server : [Exemple 1](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-simple-server.yml)
+ - A load balancer in front of web servers : [Exemple 2](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-loadbalancer.yml)
 
 Example Playbook
 -------------------------
@@ -40,5 +39,6 @@ Example Playbook
 
 More Informations
 -------------------------
-This project is still in development and lot options are missing or not fully tested.
-You can follow the developpment status on : https://trello.com/b/TPJFH9rF/ansible-haproxy
+Author: Destrem Kevin
+This project is still in development and lot options are missing or not supported.
+You can follow the development status on : https://trello.com/b/TPJFH9rF/ansible-haproxy
