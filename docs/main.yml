@@ -1,0 +1,84 @@
+---
+#
+#  The following configuration file is splited in 5 different sections :
+#   - haproxy_global : Process configuration
+#   - haproxy_defaults : Generic configuration used by all other section)
+#   - haproxy_frontends : where you define Input configuration
+#   - haproxy_backends : where you can define list of backend server and manage them
+#   - haproxy_admin : a small webinterface where you can monitor the haproxy status
+#
+#  Some parameters can be really tricky, so I advise you to look the HAProxy documentation : http://www.haproxy.org/download/1.3/doc/configuration.txt
+#
+#  ___________________
+#  Global parameters
+#  ___________________
+#  haproxy_global:
+#      chroot: {value}
+#      daemon: {value}
+#      pidfile: {value}
+#      gid: {value}
+#      user: {value}
+#      group: {value}
+#      debug: {value}
+#      quiet: {value}
+#      description: {value}
+#      maxconn: {value}
+#      log:
+#          - bind: {value}
+#            facility: {value}
+#            level: {value}
+#
+#  ___________________
+#  Defaults parameters
+#  ___________________
+#  haproxy_defaults:
+#      mode: {value}                     (values: tcp|http|health)
+#      retries: {value}
+#      timeout:
+#          - {option} {value}            (exemple: connect 10s)
+#      option:
+#          - {value}                     (exemple: http-server-close)
+#      errorfile:
+#          - {error} {errorfile}         (exemple: 500 /etc/haproxy/errors/500.http)
+#      log:
+#          - bind: {value}
+#            facility: {value}
+#            level: {value}
+#
+#  ___________________
+#  Frontends parameters (List)
+#  ___________________
+#  haproxy_frontends:
+#      name: {value}
+#      ip: {value}                       (exemple: 127.0.0.1)
+#      bind: {value}                     (exemple: *:443 ssh crt /etc/haproxy/certificate.pem)
+#      mode: {value}                     (values: tcp|http|health)
+#      default_backend: {value}
+#      acl:
+#          - name: {value}
+#            condition: {value}
+#      usebackends:
+#          - name: {value}
+#            condition: {value}
+#
+#  ___________________
+#  Defaults parameters (List)
+#  ___________________
+#  haproxy_backends:
+#      name: {value}
+#      mode: {value}                     (values: tcp|http|health)
+#      balance: {value}                  (values: roundrobin,leastconn,source,uri,url_param,hdr,...)
+#      cookie: {value}
+#      servers:
+#          - name: {value}
+#            ip: {value}
+#            port: {value}
+#            params:
+#              - {value}
+#  ___________________
+#  Defaults parameters
+#  ___________________
+#  haproxy_admin
+#      bind: {value}
+#      stats:
+#          - {value}

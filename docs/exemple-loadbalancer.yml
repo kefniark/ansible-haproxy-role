@@ -1,0 +1,55 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+   - role: haproxy
+     haproxy_global:
+       debug: enable
+       user: haproxy
+       group: haproxy
+       description: "My HAProxy process"
+       maxconn: 8000
+       log:
+        - { bind: 127.0.0.1, facility: local0, level: info}
+     haproxy_defaults:
+       mode: http
+       retries: 10
+       options:
+        - httplog
+        - dontlognull
+        - http-server-close
+        - redispatch
+       timeout:
+         - http-request 5s
+         - queue 1m
+         - connect 5s
+         - client 1m
+         - server 1m
+         - http-keep-alive 10s
+         - check 5s
+     haproxy_frontends:
+     - name: loadbalancer
+       bind: '*:82'
+       default_backend: webserver-ext
+     - name: loadbalancer-int
+       bind: '*:8080'
+       default_backend: webserver-int
+     haproxy_backends:
+     - name: webserver-ext
+       balance: roundrobin
+       servers:
+        - name: backend1
+          ip: 192.168.0.100
+          port: 80
+          params:
+           - check
+        - name: backend1
+          ip: 192.168.0.101
+          port: 80
+          params:
+           - check
+     - name: webserver-int
+       servers:
+        - name: backend1
+          ip: 192.168.0.200
+          port: 80

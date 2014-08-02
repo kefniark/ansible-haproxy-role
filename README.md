@@ -1,5 +1,6 @@
 ansible-haproxy-role
 ====================
+[![Build Status](https://travis-ci.org/kefniark/ansible-haproxy-role.svg?branch=master)](https://travis-ci.org/kefniark/ansible-haproxy-role)
 
 Install and configure haproxy under :
  - CentOS 6
@@ -8,29 +9,34 @@ Install and configure haproxy under :
  
 This repository is based on a MIT License
 
-Requirements
-------------
+Documentation:
+______________
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+You can see [the documentation](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/main.yml) to see all available options.
 
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+There is also two configuration file :
+ - A reverse proxy for a preinstalled webserver : [Exemple 1](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-simple-server.yml)
+ - A loadbalancer in front of : [Exemple 2](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-loadbalancer.yml)
 
 Example Playbook
 -------------------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- hosts: all
+  remote_user: root
+  roles:
+   - role: haproxy
+     haproxy_frontends:
+     - name: loadbalancer
+       bind: '*:8080'
+       default_backend: webserver
+     haproxy_backends:
+     - name: webserver
+       servers:
+        - name: backend1
+          ip: localhost
+          port: 80
+```
 
 More Informations
 --------------

@@ -5,9 +5,7 @@ haproxy_global:
   log:
     - bind: 127.0.0.1
       facility: local0
-    - bind: 127.0.0.1
-      facility: local1
-      level: notice
+      level: info
   description: "HAProxy Daemon"
   maxconn: 4096
   user: haproxy
@@ -16,7 +14,9 @@ haproxy_global:
 
 haproxy_defaults:
   log:
-    - bind: global
+    - bind: 127.0.0.1
+      facility: local1
+      level: info
   mode: http
   retries: 3
   options:

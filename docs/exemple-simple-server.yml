@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+   - role: haproxy
+     haproxy_frontends:
+     - name: loadbalancer
+       bind: '*:8080'
+       default_backend: webserver
+     haproxy_backends:
+     - name: webserver
+       servers:
+        - name: backend1
+          ip: localhost
+          port: 80
