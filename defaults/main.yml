@@ -12,7 +12,7 @@ haproxy_global:
   group: haproxy
   daemon: true
 
-haproxy_defaults:
+haproxy_default:
   log:
     - bind: 127.0.0.1
       facility: local1

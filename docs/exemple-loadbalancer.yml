@@ -11,7 +11,7 @@
        maxconn: 8000
        log:
         - { bind: 127.0.0.1, facility: local0, level: info}
-     haproxy_defaults:
+     haproxy_default:
        mode: http
        retries: 10
        options:
