@@ -27,6 +27,11 @@ This project also contains two examples :
  - A reverse proxy for a pre installed web server : [Exemple 1](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-simple-server.yml)
  - A load balancer in front of web servers : [Exemple 2](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/exemple-loadbalancer.yml)
 
+To make this Role more reusable, it contains 3 different tags :
+ - haproxy_install : install haproxy on the host (apt/yum/...)
+ - haproxy_configure : task which create the /etc/haproxy/haproxy.cfg
+ - haproxy_service : tasks used to start/reload the service when there is a modification
+
 Example Playbook
 -------------------------
 
@@ -53,4 +58,4 @@ More Informations
 Author: Destrem Kevin
 
 This project is still in development and lot options are missing or not supported.
-You can follow the development status on : https://trello.com/b/TPJFH9rF/ansible-haproxy
+You can follow the development status on [Trello](https://trello.com/b/TPJFH9rF/ansible-haproxy).

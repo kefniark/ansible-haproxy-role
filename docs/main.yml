@@ -54,6 +54,7 @@
 #      bind: {value}                     (exemple: *:443 ssh crt /etc/haproxy/certificate.pem)
 #      mode: {value}                     (values: tcp|http|health)
 #      default_backend: {value}
+#      sessions_ratelimit: {value}
 #      acl:
 #          - name: {value}
 #            condition: {value}

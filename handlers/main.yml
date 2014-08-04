@@ -2,6 +2,10 @@
 # handlers file for ansible-haproxy-role
 - name: restart haproxy
   service: name=haproxy state=restarted
+  tags:
+   - haproxy_service
 
 - name: reload haproxy
   service: name=haproxy state=reloaded
+  tags:
+   - haproxy_service
