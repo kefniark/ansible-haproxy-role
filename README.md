@@ -12,9 +12,11 @@ This repository is based on a MIT License
 Install
 -------------------------
 
-This project is available on [Ansible Galaxy](galaxy.ansible.com).
-To install it :
+This project is available on [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/1240).
+To install :
+```
   ansible-galaxy install kefniark.haproxy-role
+```
 
 Documentation:
 -------------------------
