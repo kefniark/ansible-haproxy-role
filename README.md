@@ -2,7 +2,9 @@ ansible-haproxy-role
 ====================
 [![Build Status](https://travis-ci.org/kefniark/ansible-haproxy-role.svg?branch=master)](https://travis-ci.org/kefniark/ansible-haproxy-role)
 
-Install and configure haproxy under :
+This Ansible Role install and configure haproxy.
+
+Current OS supported :
  - CentOS 6
  - Debian wheezy
  - Ubuntu 14
