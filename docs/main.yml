@@ -2,7 +2,7 @@
 #
 #  The following configuration file is splited in 5 different sections :
 #   - haproxy_global : Process configuration
-#   - haproxy_defaults : Generic configuration used by all other section)
+#   - haproxy_default : Generic configuration used by all other section)
 #   - haproxy_frontends : where you define Input configuration
 #   - haproxy_backends : where you can define list of backend server and manage them
 #   - haproxy_admin : a small webinterface where you can monitor the haproxy status
@@ -31,7 +31,7 @@
 #  ___________________
 #  Defaults parameters
 #  ___________________
-#  haproxy_defaults:
+#  haproxy_default:
 #      mode: {value}                     (values: tcp|http|health)
 #      retries: {value}
 #      timeout:
@@ -62,7 +62,7 @@
 #            condition: {value}
 #
 #  ___________________
-#  Defaults parameters (List)
+#  Backends parameters (List)
 #  ___________________
 #  haproxy_backends:
 #      name: {value}
@@ -76,7 +76,7 @@
 #            params:
 #              - {value}
 #  ___________________
-#  Defaults parameters
+#  Admin parameters
 #  ___________________
 #  haproxy_admin
 #      bind: {value}

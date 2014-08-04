@@ -9,8 +9,16 @@ Install and configure haproxy under :
  
 This repository is based on a MIT License
 
+Install
+-------------------------
+
+This project is available on [Ansible Galaxy](galaxy.ansible.com).
+To install it :
+  ansible-galaxy install kefniark.haproxy-role
+
 Documentation:
 -------------------------
+
 To see all available options, you can look to the [Documentation](https://github.com/kefniark/ansible-haproxy-role/blob/master/docs/main.yml).
 
 This project also contains two examples :
@@ -39,6 +47,8 @@ Example Playbook
 
 More Informations
 -------------------------
+
 Author: Destrem Kevin
+
 This project is still in development and lot options are missing or not supported.
 You can follow the development status on : https://trello.com/b/TPJFH9rF/ansible-haproxy
